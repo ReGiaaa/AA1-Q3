@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>One Time Password </title>
+        <style>
+        	body {background: lightblue; 
+            	text-align: center;
+            	font-family: arial;
+                color: navy;
+            }
+            button {padding: 10px; background:violet }
+            a {font-size: 0.5em; color: maroon}
+        </style>
+
+	</head>
+	<body onload="optnew()">
+	<h1> Final Verification Step </h1>
+	<h2> Current OTP: <span id="otp"> _ _ _ _ _ _ </span> <a onclick="otpnew()" href="#"> New OTP </a></h2>
+    <button onclick="checkOTP()"> Enter the OTP as shown above </button>
+	
+    
+	<script>
+	 function otpnew(){
+	    let otp = Math.floor(100000 + Math.random() * 900000);
+      document.getElementById("otp").innerText = otp;
+	 }
+	 
+	 function checkOTP(){
+	    let n = prompt("Enter the OTP: ");
+      let displayedOTP = document.getElementById("otp").innerText;
+
+      if (n === displayedOTP) {
+        alert("OTP is correct. Please click the link.");
+        window.open("https://www.youtube.com/watch?v=IvN5h9BE444");
+        } else {
+          alert("OTP has been cancelled or does not match :( Please try again.");
+	 }
+  }
+    </script>
+</body>
+</html>
